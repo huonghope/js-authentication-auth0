@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Auth0 - VoiceIt demo</title>
+</head>
+
+<body>
+
+<h1>Auth0 - VoiceIt 2FA</h1>
+
+
+<script src="./vendor/voiceit2.min.js"></script>
+<script src="voiceit.js"></script>
+<script src="config.js"></script>
+<script>
+
+  const queryParams = new URLSearchParams(window.location.search);
+
+  let myVoiceIt = new VoiceItHelper({
+    userId: queryParams.get("userId"),
+    auth0State: queryParams.get("state")
+  });
+
+  myVoiceIt.start2FAProcess();
+
+</script>
+
+</body>
+</html>
